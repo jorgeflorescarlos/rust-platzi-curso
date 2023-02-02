@@ -1,17 +1,19 @@
 fn main() {
-    println!("Por favor introduce tu nombre: ");
-
-    let mut nombre: String = String::new();
-    std::io::stdin().read_line(&mut nombre).unwrap();
-    nombre = nombre.trim().to_string();
-
     // obtener la edad de la consola
     println!("Por favor introduce tu edad: ");
-    let mut edad : String = String::new();
+    let mut edad: String = String::new();
     std::io::stdin().read_line(&mut edad).unwrap();
 
     // Convertir esa edad a numero
-    let edad_int : u8 = edad.trim().parse().unwrap();
+    let edad_int: u8 = edad.trim().parse().unwrap();
 
-    println!("Hola, bienvenido o bienvenida {} de {} años", nombre, edad_int);
+    if edad_int >= 18 && edad_int != 30 {
+        println!("Puedes entrar a la discoteca");
+    } else if edad_int == 30 {
+        println!("No admitimos personas exactamente de 30 años");
+    } else {
+        println!("Eres menor de edad todavia");
+    }
+
+    println!("Tienes {} años", edad_int);
 }
