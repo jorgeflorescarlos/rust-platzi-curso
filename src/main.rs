@@ -1,19 +1,26 @@
 fn main() {
-    // obtener la edad de la consola
-    println!("Por favor introduce tu edad: ");
-    let mut edad: String = String::new();
-    std::io::stdin().read_line(&mut edad).unwrap();
+    // Dos números que vamos a sumar
+    let numero_1 = 120;
+    let numero_2 = 321;
 
-    // Convertir esa edad a numero
-    let edad_int: u8 = edad.trim().parse().unwrap();
+    let suma = numero_1 + numero_2;
 
-    if edad_int >= 18 && edad_int != 30 {
-        println!("Puedes entrar a la discoteca");
-    } else if edad_int == 30 {
-        println!("No admitimos personas exactamente de 30 años");
-    } else {
-        println!("Eres menor de edad todavia");
+
+    loop {
+        // Mostrar los dos números en pantalla
+        println!("Por favor escribir la suma de {} y {}", numero_1, numero_2);
+
+        // Obtener del usuario el número que representa la suma
+        let mut suma_usuario = String::new();
+        std::io::stdin().read_line(&mut suma_usuario).unwrap();
+
+        let suma_usuario_int : i32 = suma_usuario.trim().parse().unwrap();
+
+        if suma_usuario_int == suma {
+            println!("Lo has hecho muy bien, el resultado {} es correcto", suma);
+            break;
+        } else {
+            println!("El resultado {} no es correcto por favor intentalo de nuevo", suma_usuario_int);
+        }
     }
-
-    println!("Tienes {} años", edad_int);
 }
